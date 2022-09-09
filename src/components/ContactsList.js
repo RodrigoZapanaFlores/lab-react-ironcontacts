@@ -5,12 +5,13 @@ function ContactsList() {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
 
   const handleAddRandomContact = () => {
-    alert("añadir contacto")
+    const random = contactsData[Math.floor(contactsData.length * Math.random())];
+    setContacts([random, ...contacts]);
   };
 
   return (
   <div>
-          <button onClick={handleAddRandomContact} className='btn btn-sm btn-primary'>Add random contact</button>
+    <button onClick={handleAddRandomContact} className='btn btn-sm btn-primary'>Add random contact</button>
     <table className='table' >
         <thead>
             <tr>
